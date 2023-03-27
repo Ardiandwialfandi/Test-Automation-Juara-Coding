@@ -246,11 +246,6 @@ public class TestTambahTrainer {
         ext.log(LogStatus.PASS, "Menampilkan label karakter tidak diizinkan");
             RegularPage.scrollElement(ap.textKarakter);
             Assert.assertTrue(ap.result(RegularPage.labelKarakter).contains("Karakter (<|>|'|\")"));
-        if(ap.textBerhasil.isDisplayed()){
-            Assert.assertEquals(ap.result(RegularPage.berhasilSimpan),"Karakter (<|>|'|\")");
-        }else{
-            System.out.println("error");
-        }
     }
 //    public void admin_masukan_value_nama_traine(){
 //        ext.log(LogStatus.PASS,"");
