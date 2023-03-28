@@ -16,7 +16,8 @@ public enum TestScenarios {
     T13("Simpan input type dengan simbol kutip satu"),
     T14("Simpan input type dengan simbol kurang dari"),
     T15("Berhasil Menambahkan Trainer"),
-    T16("Menambahkan jumlah total trainer");
+    T16("Menambahkan jumlah total trainer"),
+    T17("Menampilkan list data trainer dengan search");
     private final String testCaseName;
 
     TestScenarios(String value){

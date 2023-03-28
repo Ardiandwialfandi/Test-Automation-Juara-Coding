@@ -5,7 +5,10 @@ import com.testing.magang.utils.RegularPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class AboutPage {
 
@@ -55,6 +58,13 @@ public class AboutPage {
 
     @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[2]/div/div/div/div[3]/div/b")
     public WebElement textTotalTrainer;
+    @FindBy(name = "cari")
+    public WebElement search;
+    @FindBys({
+            @FindBy(className = "caption")
+    })
+    public List <WebElement> listName;
+
 //    @FindBy(xpath = "//input[@id='username']")
 //    WebElement email;@FindBy(xpath = "//input[@id='username']")
 //    WebElement email;
@@ -70,6 +80,7 @@ public class AboutPage {
             case RegularPage.tombolAbout -> btnAbout.click();
             case RegularPage.tombolTambah-> btnTambah.click();
             case RegularPage.tombolSimpan -> btnSimpan.click();
+            case RegularPage.searchTrainer -> search.click();
         }
     }
 
@@ -80,6 +91,7 @@ public class AboutPage {
             case RegularPage.isiJabatan -> isiJabatan.sendKeys(value);
             case RegularPage.isiProfile -> isiProfile.sendKeys(value);
             case RegularPage.pilihPublish -> publish.sendKeys(value);
+            case RegularPage.searchTrainer -> search.sendKeys(value);
         }
     }
 
@@ -103,6 +115,16 @@ public class AboutPage {
                 return textBerhasil.getText();
             }case RegularPage.totalTrainer -> {
                 return textTotalTrainer.getText();
+            }case RegularPage.listTrainer -> {
+                for(WebElement name : listName){
+                    return name.getText();
+                }
+            }case RegularPage.isiNamaTrainer -> {
+                return isiNamaTrainer.getAttribute("name");
+            }case RegularPage.isiJabatan -> {
+                return isiJabatan.getAttribute("name");
+            }case RegularPage.isiProfile -> {
+                return isiProfile.getAttribute("name");
             }
 
         }

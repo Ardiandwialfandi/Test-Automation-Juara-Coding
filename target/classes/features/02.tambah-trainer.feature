@@ -19,7 +19,7 @@ Feature: Tambah Trainer
     Given Admin pilih file gambar
     When Admin menghapus value nama trainer
     And Admin klik tombol simpan
-    Then Menampilkan alert nama trainer wajib diisi
+    Then Menampilkan message nama trainer wajib diisi
 
   Scenario: Simpan dengan text box nama trainer spasi
     Given Admin pilih file gambar
@@ -32,7 +32,7 @@ Feature: Tambah Trainer
     When Admin masukan value nama trainer
     And Admin menghapus value jabatan
     And Admin klik tombol simpan
-    Then Menampilkan alert jabatan wajib diisi
+    Then Menampilkan message jabatan wajib diisi
 
   Scenario: Simpan dengan text box jabatan spasi
     Given Admin pilih file gambar
@@ -45,7 +45,7 @@ Feature: Tambah Trainer
     When Admin masukan value jabatan
     And Admin menghapus value isi profile
     And Admin klik tombol simpan
-    Then Menampilkan alert isi profile wajib diisi
+    Then Menampilkan message isi profile wajib diisi
 
   Scenario: Simpan dengan text box isi profile spasi
     Given Admin pilih file gambar
@@ -94,26 +94,33 @@ Feature: Tambah Trainer
     And Admin masukan value isi profile dengan kurang dari
     And Admin pilih tipe list publish
     And Admin klik tombol simpan
-    Then Menampilkan label karakter tidak diizinkan
+    Then Menampilkan message karakter tidak diizinkan
 
-    Scenario: Berhasil Menambahkan Trainer
-      Given Admin klik tombol tambah
-      When Admin pilih file gambar
-      And Admin masukan value nama trainer
-      And Admin masukan value jabatan
-      And Admin masukan value isi profile
-      And Admin pilih tipe list publish
-      And Admin klik tombol simpan
-      Then Data berhasil ditambah
+  Scenario: Berhasil Menambahkan Trainer
+    Given Admin klik tombol tambah
+    When Admin pilih file gambar
+    And Admin masukan value nama trainer
+    And Admin masukan value jabatan
+    And Admin masukan value isi profile
+    And Admin pilih tipe list publish
+    And Admin klik tombol simpan
+    Then Data berhasil ditambah
 
-      Scenario: Menambahkan jumlah total trainer
-        Given Menampilkan total sebelumnya
-        When Admin klik tombol tambah
-        And Admin pilih file gambar
-        And Admin masukan value nama trainer
-        And Admin masukan value jabatan
-        And Admin masukan value isi profile
-        And Admin pilih tipe list publish
-        And Admin klik tombol simpan
-        Then Total berhasil bertambah
+  Scenario: Menambahkan jumlah total trainer
+    Given Menampilkan total sebelumnya
+    When Admin klik tombol tambah
+    And Admin pilih file gambar
+    And Admin masukan value nama trainer
+    And Admin masukan value jabatan
+    And Admin masukan value isi profile
+    And Admin pilih tipe list publish
+    And Admin klik tombol simpan
+    Then Total berhasil bertambah
+
+  Scenario: Menampilkan list data trainer dengan search
+    Given Admin klik tombol about
+    When Admin klik text box search
+    And Admin masukan value nama trainer pada search
+    And Admin klik enter pada keyboard
+    Then Menampilkan list nama trainer
 

@@ -23,7 +23,9 @@ public class RegularPage {
     public static final String imageException = "image";
     public static final String labelKarakter = "karakter";
     public static final String berhasilSimpan = "simpan";
+    public static final String listTrainer = "list";
     public static final String totalTrainer = "trainer";
+    public static final String searchTrainer = "search";
     public static final String tombolLogout = "logout";
     public static final String tombolLog = "logout";
 
