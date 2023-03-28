@@ -6,12 +6,12 @@ import com.testing.magang.libtest.LibraryTest;
 import com.testing.magang.pages.about.AboutPage;
 import com.testing.magang.utils.RegularPage;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class TestTambahTrainer {
     public static WebDriver driver;
@@ -24,14 +24,7 @@ public class TestTambahTrainer {
         ext = LibraryTest.extentTest;
     }
 
-    @When("Admin masukan value nama trainer")
-    public void admin_masukan_value_nama_trainer() {
-        ext.log(LogStatus.PASS, "Admin masukan value nama trainer");
-        ap.valueSendkey(RegularPage.isiNamaTrainer, Keys.CONTROL + "a");
-        ap.valueSendkey(RegularPage.isiNamaTrainer, "Ardian");
-    }
-
-    @When("Admin pilih file gambar")
+    @Given("Admin pilih file gambar")
     public void admin_pilih_file_gambar() {
         ext.log(LogStatus.PASS, "Admin pilih file gambar");
         RegularPage.scrollElement(ap.txtTambahTrainer);
@@ -39,16 +32,75 @@ public class TestTambahTrainer {
         ap.valueSendkey(RegularPage.isiFile, "E:\\Users\\Ardian\\Pictures\\wow.JPG");
     }
 
-    @When("Admin pilih file selain gambar")
+    @Given("Admin kembali ke halaman sebelumnya")
+    public void admin_kembali_ke_halaman_sebelumnya(){
+        ext.log(LogStatus.PASS,"Admin kembali ke halaman sebelumnya");
+        driver.navigate().to("https://dev.ptdika.com/web_jc_v2/admin/about/add");
+    }
+
+    @Given("Admin pilih file selain gambar")
     public void admin_pilih_file_selain_gambar(){
         ext.log(LogStatus.PASS,"Admin pilih file selain gambar");
         RegularPage.scrollElement(ap.txtTambahTrainer);
         ap.valueSendkey(RegularPage.isiFile,"F:\\Berkas Lamar kerja\\CV Ardian Dwi Alfandi.docx");
     }
-    @When("Admin kembali ke halaman sebelumnya")
-    public void admin_kembali_ke_halaman_sebelumnya(){
-        ext.log(LogStatus.PASS,"Admin kembali ke halaman sebelumnya");
-        driver.navigate().to("https://dev.ptdika.com/web_jc_v2/admin/about/add");
+
+    @When("Admin masukan value nama trainer")
+    public void admin_masukan_value_nama_trainer() {
+        ext.log(LogStatus.PASS, "Admin masukan value nama trainer");
+        ap.valueSendkey(RegularPage.isiNamaTrainer, Keys.CONTROL + "a");
+        ap.valueSendkey(RegularPage.isiNamaTrainer, "Ardian");
+    }
+
+    @When("Admin masukan value jabatan dengan spasi")
+    public void admin_masukan_value_jabatan_dengan_spasi() {
+        ext.log(LogStatus.PASS, "Admin masukan value jabatan dengan spasi");
+        RegularPage.scrollElement(ap.txtTambahTrainer);
+        ap.valueSendkey(RegularPage.isiJabatan, " ");
+    }
+
+    @When("Admin masukan value jabatan")
+    public void admin_masukan_value_jabatan() {
+        ext.log(LogStatus.PASS, "Admin masukan value jabatan");
+        ap.valueSendkey(RegularPage.isiJabatan, Keys.CONTROL+"a");
+        ap.valueSendkey(RegularPage.isiJabatan, "SQA");
+    }
+
+    @When("Admin masukan value isi profile")
+    public void admin_masukan_value_isi_profile() {
+        ext.log(LogStatus.PASS, "Admin masukan value isi profile");
+        ap.valueSendkey(RegularPage.isiProfile, Keys.CONTROL+"a");
+        ap.valueSendkey(RegularPage.isiProfile, "Mantap");
+    }
+
+    @When("Admin masukan value isi profile dengan spasi")
+    public void admin_masukan_value_isi_profile_dengan_spasi() {
+        ext.log(LogStatus.PASS,"Admin masukan value isi profile dengan spasi");
+        RegularPage.scrollElement(ap.txtTambahTrainer);
+        ap.valueSendkey(RegularPage.isiProfile," ");
+    }
+
+    @When("Admin masukan value nama trainer dengan lebih dari")
+    public void nama_lebih_dari() {
+        ext.log(LogStatus.PASS,"Admin masukan value nama trainer dengan lebih dari");
+        RegularPage.scrollElement(ap.txtTambahTrainer);
+        ap.valueSendkey(RegularPage.isiNamaTrainer,Keys.CONTROL+"a");
+        ap.valueSendkey(RegularPage.isiNamaTrainer,"Ardian>");
+    }
+
+    @When("Admin masukan value nama trainer dengan kutip satu")
+    public void nama_kutip_satu() {
+        ext.log(LogStatus.PASS,"Admin masukan value nama trainer dengan kutip satu");
+        RegularPage.scrollElement(ap.txtTambahTrainer);
+        ap.valueSendkey(RegularPage.isiNamaTrainer,Keys.CONTROL+"a");
+        ap.valueSendkey(RegularPage.isiNamaTrainer,"Ardian'");
+    }
+
+    @When("Admin masukan value isi profile dengan kurang dari")
+    public void profil_kurang_dari() {
+        ext.log(LogStatus.PASS,"Admin masukan value jabatan dengan kurang dari");
+        ap.valueSendkey(RegularPage.isiProfile,Keys.CONTROL+"a");
+        ap.valueSendkey(RegularPage.isiProfile,"Mantap<");
     }
 //    public void admin_masukan_value_nama_traine(){
 //        ext.log(LogStatus.PASS,"");
@@ -62,20 +114,6 @@ public class TestTambahTrainer {
         RegularPage.scrollPage("0", "600");
         RegularPage.delayDuration(3);
         ap.btnClick(RegularPage.tombolSimpan);
-    }
-
-    @And("Admin masukan value jabatan")
-    public void admin_masukan_value_jabatan() {
-        ext.log(LogStatus.PASS, "Admin masukan value jabatan");
-        ap.valueSendkey(RegularPage.isiJabatan, Keys.CONTROL+"a");
-        ap.valueSendkey(RegularPage.isiJabatan, "SQA");
-    }
-
-    @And("Admin masukan value isi profile")
-    public void admin_masukan_value_isi_profile() {
-        ext.log(LogStatus.PASS, "Admin masukan value isi profile");
-        ap.valueSendkey(RegularPage.isiProfile, Keys.CONTROL+"a");
-        ap.valueSendkey(RegularPage.isiProfile, "Mantap");
     }
 
     @And("Admin pilih tipe list publish")
@@ -107,26 +145,12 @@ public class TestTambahTrainer {
         ap.valueSendkey(RegularPage.isiJabatan, Keys.DELETE + "");
     }
 
-    @And("Admin masukan value jabatan dengan spasi")
-    public void admin_masukan_value_jabatan_dengan_spasi() {
-        ext.log(LogStatus.PASS, "Admin masukan value jabatan dengan spasi");
-        RegularPage.scrollElement(ap.txtTambahTrainer);
-        ap.valueSendkey(RegularPage.isiJabatan, " ");
-    }
-
     @And("Admin menghapus value isi profile")
         public void admin_menghapus_value_isi_profile() {
         ext.log(LogStatus.PASS, "Admin menghapus value isi profile");
         RegularPage.scrollElement(ap.txtTambahTrainer);
         ap.valueSendkey(RegularPage.isiProfile,Keys.CONTROL+"a");
         ap.valueSendkey(RegularPage.isiProfile,Keys.DELETE+"");
-    }
-
-    @And("Admin masukan value isi profile dengan spasi")
-    public void admin_masukan_value_isi_profile_dengan_spasi() {
-        ext.log(LogStatus.PASS,"Admin masukan value isi profile dengan spasi");
-        RegularPage.scrollElement(ap.txtTambahTrainer);
-        ap.valueSendkey(RegularPage.isiProfile," ");
     }
     @And("Admin masukan value nama trainer dengan kutip dua")
     public void nama_kutip_dua() {
@@ -147,13 +171,7 @@ public class TestTambahTrainer {
         ap.valueSendkey(RegularPage.isiProfile,Keys.CONTROL+"a");
         ap.valueSendkey(RegularPage.isiProfile,"Mantap\"");
     }
-    @And("Admin masukan value nama trainer dengan lebih dari")
-    public void nama_lebih_dari() {
-        ext.log(LogStatus.PASS,"Admin masukan value nama trainer dengan lebih dari");
-        RegularPage.scrollElement(ap.txtTambahTrainer);
-        ap.valueSendkey(RegularPage.isiNamaTrainer,Keys.CONTROL+"a");
-        ap.valueSendkey(RegularPage.isiNamaTrainer,"Ardian>");
-    }
+
     @And("Admin masukan value jabatan dengan lebih dari")
     public void jabatan_lebih_dari() {
         ext.log(LogStatus.PASS,"Admin masukan value jabatan dengan lebih dari");
@@ -166,13 +184,7 @@ public class TestTambahTrainer {
         ap.valueSendkey(RegularPage.isiProfile,Keys.CONTROL+"a");
         ap.valueSendkey(RegularPage.isiProfile,"Mantap>");
     }
-    @And("Admin masukan value nama trainer dengan kutip satu")
-    public void nama_kutip_satu() {
-        ext.log(LogStatus.PASS,"Admin masukan value nama trainer dengan kutip satu");
-        RegularPage.scrollElement(ap.txtTambahTrainer);
-        ap.valueSendkey(RegularPage.isiNamaTrainer,Keys.CONTROL+"a");
-        ap.valueSendkey(RegularPage.isiNamaTrainer,"Ardian'");
-    }
+
     @And("Admin masukan value jabatan dengan kutip satu")
     public void jabatan_kutip_satu() {
         ext.log(LogStatus.PASS,"Admin masukan value jabatan dengan kutip satu");
@@ -198,12 +210,7 @@ public class TestTambahTrainer {
         ap.valueSendkey(RegularPage.isiJabatan,Keys.CONTROL+"a");
         ap.valueSendkey(RegularPage.isiJabatan,"SQA<");
     }
-    @And("Admin masukan value isi profile dengan kurang dari")
-    public void profil_kurang_dari() {
-        ext.log(LogStatus.PASS,"Admin masukan value jabatan dengan kurang dari");
-        ap.valueSendkey(RegularPage.isiProfile,Keys.CONTROL+"a");
-        ap.valueSendkey(RegularPage.isiProfile,"Mantap<");
-    }
+
 //        public void admin_masukan_value_nama_traine () {
 //        ext.log(LogStatus.PASS,"");
 //    }

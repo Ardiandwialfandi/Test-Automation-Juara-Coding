@@ -16,52 +16,52 @@ Feature: Tambah Trainer
 
 
   Scenario: Simpan dengan text box nama trainer kosong
-    When Admin pilih file gambar
-    And Admin menghapus value nama trainer
+    Given Admin pilih file gambar
+    When Admin menghapus value nama trainer
     And Admin klik tombol simpan
     Then Menampilkan alert nama trainer wajib diisi
 
   Scenario: Simpan dengan text box nama trainer spasi
-    When Admin pilih file gambar
-    And Admin masukan value nama trainer dengan spasi
+    Given Admin pilih file gambar
+    When Admin masukan value nama trainer dengan spasi
     And Admin klik tombol simpan
     Then Menampilkan alert nama trainer wajib diisi
 
   Scenario: Simpan dengan text box jabatan kosong
-    When Admin pilih file gambar
-    And Admin masukan value nama trainer
+    Given Admin pilih file gambar
+    When Admin masukan value nama trainer
     And Admin menghapus value jabatan
     And Admin klik tombol simpan
     Then Menampilkan alert jabatan wajib diisi
 
   Scenario: Simpan dengan text box jabatan spasi
-    When Admin pilih file gambar
-    And Admin masukan value jabatan dengan spasi
+    Given Admin pilih file gambar
+    When Admin masukan value jabatan dengan spasi
     And Admin klik tombol simpan
     Then Menampilkan alert jabatan wajib diisi
 #
   Scenario: Simpan dengan text box isi profile kosong
-    When Admin pilih file gambar
-    And Admin masukan value jabatan
+    Given Admin pilih file gambar
+    When Admin masukan value jabatan
     And Admin menghapus value isi profile
     And Admin klik tombol simpan
     Then Menampilkan alert isi profile wajib diisi
 
   Scenario: Simpan dengan text box isi profile spasi
-    When Admin pilih file gambar
-    And Admin masukan value isi profile dengan spasi
+    Given Admin pilih file gambar
+    When Admin masukan value isi profile dengan spasi
     And Admin klik tombol simpan
     Then Menampilkan alert isi profile wajib diisi
 
   Scenario: Menambahkan Trainer dengan file format selain gambar
-    When Admin pilih file selain gambar
-    And Admin masukan value isi profile
+    Given Admin pilih file selain gambar
+    When Admin masukan value isi profile
     And Admin klik tombol simpan
     Then Menampilkan halaman image exception
 #
   Scenario: Simpan input type dengan simbol kutip dua
-    When Admin kembali ke halaman sebelumnya
-    And Admin pilih file gambar
+    Given Admin kembali ke halaman sebelumnya
+    When Admin pilih file gambar
     And Admin masukan value nama trainer dengan kutip dua
     And Admin masukan value jabatan dengan kutip dua
     And Admin masukan value isi profile dengan kutip dua
@@ -70,8 +70,8 @@ Feature: Tambah Trainer
     Then Menampilkan label karakter tidak diizinkan
 
   Scenario: Simpan input type dengan simbol lebih dari
-    When Admin pilih file gambar
-    And Admin masukan value nama trainer dengan lebih dari
+    Given Admin pilih file gambar
+    When Admin masukan value nama trainer dengan lebih dari
     And Admin masukan value jabatan dengan lebih dari
     And Admin masukan value isi profile dengan lebih dari
     And Admin pilih tipe list publish
@@ -79,8 +79,8 @@ Feature: Tambah Trainer
     Then Menampilkan label karakter tidak diizinkan
 
   Scenario: Simpan input type dengan simbol kutip satu
-    When Admin pilih file gambar
-    And Admin masukan value nama trainer dengan kutip satu
+    Given Admin pilih file gambar
+    When Admin masukan value nama trainer dengan kutip satu
     And Admin masukan value jabatan dengan kutip satu
     And Admin masukan value isi profile dengan kutip satu
     And Admin pilih tipe list publish
@@ -88,8 +88,8 @@ Feature: Tambah Trainer
     Then Menampilkan label karakter tidak diizinkan
 
   Scenario: Simpan input type dengan simbol kurang dari
-    When Admin pilih file gambar
-    And Admin masukan value nama trainer dengan kurang dari
+    Given Admin pilih file gambar
+    When Admin masukan value nama trainer dengan kurang dari
     And Admin masukan value jabatan dengan kurang dari
     And Admin masukan value isi profile dengan kurang dari
     And Admin pilih tipe list publish
