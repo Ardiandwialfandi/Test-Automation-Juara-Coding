@@ -42,7 +42,17 @@ public class TestTambahTrainer {
     public void admin_pilih_file_selain_gambar(){
         ext.log(LogStatus.PASS,"Admin pilih file selain gambar");
         RegularPage.scrollElement(ap.txtTambahTrainer);
+        RegularPage.delayDuration(1);
         ap.valueSendkey(RegularPage.isiFile,"F:\\Berkas Lamar kerja\\CV Ardian Dwi Alfandi.docx");
+    }
+
+    @Given("Menampilkan total sebelumnya")
+    public void menampilkan_total_sebelumnya(){
+        ext.log(LogStatus.PASS,"Menampilkan total sebelumnya");
+        String before = ap.result(RegularPage.totalTrainer);
+        System.out.println(before);
+        RegularPage.scrollElement(ap.trainer);
+        RegularPage.delayDuration(1);
     }
 
     @When("Admin masukan value nama trainer")
@@ -254,6 +264,22 @@ public class TestTambahTrainer {
             RegularPage.scrollElement(ap.textKarakter);
             Assert.assertTrue(ap.result(RegularPage.labelKarakter).contains("Karakter (<|>|'|\")"));
     }
+    @Then("Data berhasil ditambah")
+    public void data_berhasil_ditambah() {
+        ext.log(LogStatus.PASS, "Data berhasil ditambah");
+            RegularPage.scrollElement(ap.textBerhasil);
+            Assert.assertEquals(ap.result(RegularPage.berhasilSimpan),"Data berhasil di tambah");
+    }
+
+    @Then("Total berhasil bertambah")
+    public void Total_berhasil_bertambah() {
+        ext.log(LogStatus.PASS, "Total berhasil bertambahh");
+        RegularPage.scrollElement(ap.btnTambah);
+        String expect = ap.textTotalTrainer.getText();
+        System.out.println(expect);
+        Assert.assertEquals(ap.result(RegularPage.totalTrainer),expect);
+    }
+
 //    public void admin_masukan_value_nama_traine(){
 //        ext.log(LogStatus.PASS,"");
 //    }public void admin_masukan_value_nama_traine(){

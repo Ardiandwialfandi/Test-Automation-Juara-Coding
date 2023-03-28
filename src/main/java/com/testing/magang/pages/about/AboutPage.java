@@ -22,8 +22,10 @@ public class AboutPage {
     WebElement btnSignin;
     @FindBy(xpath = "//span[normalize-space()='About']")
     WebElement btnAbout;
-    @FindBy(xpath = "//a[normalize-space()='Tambah']")
-    WebElement btnTambah;
+    @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[1]/div/div/div[2]/ol/li[1]")
+    public WebElement trainer;
+    @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[2]/div/div/div/div[1]/a")
+    public WebElement btnTambah;
     @FindBy(xpath = "//h4[normalize-space()='Tambah Trainer']")
     public WebElement txtTambahTrainer;
     @FindBy(xpath = "//input[@name='uploadedFile']")
@@ -50,7 +52,11 @@ public class AboutPage {
     public WebElement textKarakter;
     @FindBy(xpath = "//alert[@class='alert alert-success']")
     public WebElement textBerhasil;
+
+    @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[2]/div/div/div/div[3]/div/b")
+    public WebElement textTotalTrainer;
 //    @FindBy(xpath = "//input[@id='username']")
+//    WebElement email;@FindBy(xpath = "//input[@id='username']")
 //    WebElement email;
 
     public void login() {
@@ -95,11 +101,14 @@ public class AboutPage {
                 return textKarakter.getText();
             }case RegularPage.berhasilSimpan -> {
                 return textBerhasil.getText();
+            }case RegularPage.totalTrainer -> {
+                return textTotalTrainer.getText();
             }
 
         }
         return tampil;
     }
+
 
 }
 

@@ -45,6 +45,7 @@ public class TestHalamanAbout {
     @And("Admin klik tombol tambah")
     public void admin_klik_tombol_tambah(){
         ext.log(LogStatus.PASS, "Admin klik tombol tambah");
+        RegularPage.scrollElement(ap.trainer);
         ap.btnClick(RegularPage.tombolTambah);
     }
 
