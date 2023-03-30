@@ -9,48 +9,70 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     private WebDriver driver;
-    public LoginPage(){
+
+    public LoginPage() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//h1[normalize-space()='Admin Login']")
+    WebElement loginTitle;
     @FindBy(xpath = "//input[@id='username']")
     WebElement username;
     @FindBy(xpath = "//input[@id='password']")
     WebElement password;
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnLogin;
-    @FindBy(xpath = "//i[@class='middle fa fa-angle-down']")
+    @FindBy(xpath = "//p[@class='alert alert-warning']")
+    WebElement txtUsernameAtauPasswordSalah;
+    @FindBy(xpath = "//div[@id='swal2-html-container']")
+    WebElement txtUsernameAtauPasswordKosong;
+    @FindBy(xpath = "//span[normalize-space()='Dashboard']")
+    WebElement txtDashboard;
+    @FindBy(xpath = "//button[normalize-space()='OK']")
+    WebElement btnOk;
+    @FindBy(xpath = "//p[@class='mb-0 font-roboto']")
     WebElement pageLogout;
     @FindBy(xpath = "//span[normalize-space()='Log Out']")
     WebElement btnLogout;
-    @FindBy(xpath = "//span[normalize-space()='Dashboard']")
-    WebElement txtDashboard;
-    @FindBy(xpath = "//h1[normalize-space()='Admin Login']")
-    WebElement loginTitle;
-    @FindBy(xpath = "//p[@class='alert alert-warning']")
-    WebElement txtUsernameAtauPasswordSalah;
 
-    public String getLoginTitle(){
+    public String getLoginTitle() {
         return loginTitle.getText();
     }
-    public String getTxtDashboard(){
-        return txtDashboard.getText();
-    }
-    public String getTxtUsernameAtauPasswordSalah(){
+
+    public String getTxtUsernameAtauPasswordSalah() {
         return txtUsernameAtauPasswordSalah.getText();
     }
-    public void enterUsername(String username){
+
+    public String getTxtUsernameAtauPasswordKosong(){
+        return txtUsernameAtauPasswordKosong.getText();
+    }
+
+    public String getTxtDashboard() {
+        return txtDashboard.getText();
+    }
+
+    public void enterUsername(String username) {
         this.username.sendKeys(username);
     }
-    public void enterPassword(String password){
+
+    public void enterPassword(String password) {
         this.password.sendKeys(password);
     }
-    public void buttonLogin() {
+
+    public void tombolOk(){
+        btnOk.click();
+    }
+
+    public void btnLogin() {
         btnLogin.click();
     }
-    public void btnLogout() {
+
+    public void btnLogot() {
         btnLogout.click();
+    }
+
+    public void pageLogot() {
         pageLogout.click();
     }
 }
