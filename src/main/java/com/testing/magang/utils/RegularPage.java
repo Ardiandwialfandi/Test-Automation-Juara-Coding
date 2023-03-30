@@ -14,7 +14,7 @@ public class RegularPage {
     public static final String isiFile = "file";
     public static final String isiNamaTrainer = "nama";
     public static final String isiJabatan = "jabatan";
-    public static final String isiProfile = "profile";
+    public static final String isiProfile = "profilee";
     public static final String pilihPublish = "about";
     public static final String textTambahTrainer = "text";
     public static final String namaWajibDiisi = "wajibnama";
@@ -24,8 +24,22 @@ public class RegularPage {
     public static final String labelKarakter = "karakter";
     public static final String berhasilSimpan = "simpan";
     public static final String listTrainer = "list";
+    public static final String listGrids = "listGrid";
     public static final String totalTrainer = "trainer";
     public static final String searchTrainer = "search";
+    public static final String klikGambar = "gambar";
+    public static final String klikImage = "gambar2";
+    public static final String fileEdit = "fileEdit";
+    public static final String simpanEdit = "simpanEdit";
+    public static final String dataUpdate = "update";
+    public static final String editNama = "editnama";
+    public static final String editjabat = "editjabat";
+    public static final String editProfil = "editprof";
+    public static final String alertNamaWajib = "alertnama";
+    public static final String alertJabatanWajib = "alertjab";
+    public static final String alertProfilWajib = "alertprof";
+    public static final String alert = "alert";
+    public static final String grid = "grid";
     public static final String tombolLogout = "logout";
     public static final String tombolLog = "logout";
 
