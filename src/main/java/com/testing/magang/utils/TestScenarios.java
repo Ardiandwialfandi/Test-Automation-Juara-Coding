@@ -32,7 +32,23 @@ public enum TestScenarios {
     T29("Ubah dengan semua value kosong"),
     T30("Ubah dengan semua value spasi"),
     T31("Mengubah data trainer"),
-    T32("Menampilkan hasil grid ke tiga");
+    T32("Menampilkan hasil grid ke tiga"),
+    T33("Menampilkan form blog"),
+    T34("Menambahkan Blog dengan value kosong"),
+    T35("Menambahkan Blog tidak dengan file"),
+    T36("Simpan dengan text box judul blog kosong"),
+    T37("Simpan dengan text box judul content preview kosong"),
+    T38("Simpan dengan text box content blog kosong"),
+    T39("Simpan dengan value judul sama"),
+    T40("Simpan dengan text box content blog kosong dua"),
+    T41("Menambahkan blog dengan file selain gambar"),
+    T42("Menyimpan value menggunakan simbol lebih dari"),
+    T43("Menyimpan value menggunakan simbol kutip satu"),
+    T44("Menyimpan value menggunakan simbol kutip dua"),
+    T45("Menyimpan value menggunakan symbol kurang dari"),
+    T46("Berhasil menambahkan blog"),
+    T47("Menambahkan jumlah total blog"),
+    T48("Menampilkan data sesuai keyword");
     private final String testCaseName;
 
     TestScenarios(String value){
