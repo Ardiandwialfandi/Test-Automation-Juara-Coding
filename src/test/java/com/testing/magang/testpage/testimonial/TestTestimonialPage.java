@@ -1,9 +1,8 @@
-package com.testing.magang.testpage.about;
+package com.testing.magang.testpage.testimonial;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import com.testing.magang.libtest.LibraryTest;
-import com.testing.magang.pages.about.AboutPage;
 import com.testing.magang.utils.Regular;
 import com.testing.magang.utils.RegularPage;
 import io.cucumber.java.en.And;
@@ -13,15 +12,15 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class TestHalamanAbout {
+public class TestTestimonialPage {
 
     public static WebDriver driver;
-    public static AboutPage ap;
+    public static TestimonialPage ap;
     public static ExtentTest ext;
 
     public TestHalamanAbout(){
         driver = LibraryTest.driver;
-        ap = new AboutPage();
+        ap = new TestimonialPage();
         ext = LibraryTest.extentTest;
     }
 
@@ -35,11 +34,11 @@ public class TestHalamanAbout {
         ext.log(LogStatus.PASS,"Admin login web juara coding");
         ap.login();
     }
-    @When("Admin klik tombol about")
+    @When("Admin klik tombol testimonial")
     public void admin_klik_tombol_about(){
         RegularPage.delayDuration(1);
         ext.log(LogStatus.PASS, "Admin klik tombol about");
-        ap.btnClick(RegularPage.tombolAbout);
+        ap.btnClick(RegularPage.tombolTestimonial);
     }
 
     @And("Admin klik tombol tambah")
@@ -48,10 +47,10 @@ public class TestHalamanAbout {
         ap.btnClick(RegularPage.tombolTambah);
     }
 
-    @Then("Admin berhasil ke halaman tambah trainer")
-    public void admin_berhasil_ke_halaman_tambah_trainer(){
-        ext.log(LogStatus.PASS,"Admin berhasil ke halaman tambah trainer");
-        Assert.assertEquals(ap.result(RegularPage.textTambahTrainer),"Tambah Trainer");
+    @Then("Admin berhasil ke halaman tambah peserta")
+    public void admin_berhasil_ke_halaman_tambah_peserta(){
+        ext.log(LogStatus.PASS,"Admin berhasil ke halaman tambah peserta");
+        Assert.assertEquals(ap.result(RegularPage.textTambahTrainer),"Tambah Peserta");
         RegularPage.delayDuration(1);
     }
 
