@@ -8,8 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RegularPage {
 
-    public static final String tombolAbout = "about";
-    public static final String tombolTambah = "tambah";
+    public static final String tombolContactMessages = "contactMessages";
+    public static final String tombolselect1 = "Name";
+    public static final String tombolselect2 = "Email";
+    public static final String tombolselect3 = "PhoneNumber";
+    public static final String tombolselect4 = "Subject";
+    public static final String tombolComboBox = "Filter";
     public static final String tombolSimpan = "simpan";
     public static final String isiFile = "file";
     public static final String isiNamaTrainer = "nama";
