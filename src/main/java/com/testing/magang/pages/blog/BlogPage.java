@@ -2,12 +2,15 @@ package com.testing.magang.pages.blog;
 
 import com.testing.magang.drivers.DriverSingleton;
 import com.testing.magang.utils.RegularPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BlogPage {
@@ -18,6 +21,7 @@ public class BlogPage {
         driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
+    List<String> currentOptions = new ArrayList<>();
 
     @FindBy(xpath = "//span[normalize-space()='Blog']")
     WebElement btnBlog;
@@ -27,9 +31,8 @@ public class BlogPage {
     public WebElement btnTambah;
     @FindBy(xpath = "//input[@name='uploadedFile']")
     public WebElement isiFile;
-
     @FindBy(xpath = "//textarea[@name='body_preview']")
-    WebElement isiPreview;
+    public WebElement isiPreview;
     @FindBy(xpath = "//div[@role='textbox']")
     public WebElement isiContent;
     @FindBy(css = "input[value='Simpan']")
@@ -50,39 +53,24 @@ public class BlogPage {
     WebElement publishBlog;
     @FindBy(xpath = "(//select[@id='exampleFormControlSelect9'])[2]")
     WebElement selectToHome;
-
     @FindBy(xpath = "/html/body/div[1]/div/p")
     WebElement textImageExc;
-
     @FindBy(xpath = "//*[@id=\"frmregister\"]/div[2]/div/div[2]/div/div")
     public WebElement textKarakter;
-
     @FindBy(xpath = "//alert[@class='alert alert-success']")
     public WebElement textBerhasil;
     @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[2]/div/div/div/div[3]/div/b")
     public WebElement textTotalTrainer;
     @FindBy(name = "cari")
     public WebElement search;
-    @FindBys({
-            @FindBy(tagName = "figure")
+    @FindAll({
+           @FindBy(tagName = "figure")
     })
     public List<WebElement> listName;
-
     @FindBy(xpath = "(//img[@alt='Image description'])[1]")
     WebElement gambar;
     @FindBy(xpath = "(//img[@alt='Image description'])[6]")
     WebElement gambarDua;
-//    @FindBy(xpath = "//*[@id=\"pageWrapper\"]/div[2]/div[2]/div[2]/div/div/div/alert")
-//    public WebElement textUpdate;
-//    @FindBy(className = "alert alert-danger mt-2")
-//    public WebElement textAlert;
-//    @FindBy(xpath = "/html/body/div[2]/div[2]/div[2]/div[2]/div/div/div/div[4]/div/nav/ul/li[3]")
-//    public WebElement btnGrid;
-//
-//    @FindBys({
-//            @FindBy(tagName = "p")
-//    })
-//    public List <WebElement> listGrid;
 
     public void btnClick(String click) {
         switch (click) {
@@ -92,8 +80,6 @@ public class BlogPage {
             case RegularPage.searchFeature -> search.click();
             case RegularPage.klikGambar -> gambar.click();
             case RegularPage.klikImage -> gambarDua.click();
-//            case RegularPage.simpanEdit -> editSimpan.click();
-//            case RegularPage.grid -> btnGrid.click();
         }
     }
 
@@ -106,10 +92,6 @@ public class BlogPage {
             case RegularPage.publishBlog -> publishBlog.sendKeys(value);
             case RegularPage.selecthome -> selectToHome.sendKeys(value);
             case RegularPage.searchBlog -> search.sendKeys(value);
-//            case RegularPage.fileEdit -> editFile.sendKeys(value);
-//            case RegularPage.editNama -> editNamaTrainer.sendKeys(value);
-//            case RegularPage.editjabat -> editJabatan.sendKeys(value);
-//            case RegularPage.editProfil -> editProfile.sendKeys(value);
         }
     }
 
@@ -125,15 +107,7 @@ public class BlogPage {
                 return alertIsiPreview.getText();
             }case RegularPage.alertCont -> {
                 return alertIsiContent.getText();
-            }
-//            case RegularPage.alertNamaWajib -> {
-//                return textAlertIsiNama.getText();
-//            }case RegularPage.alertJabatanWajib -> {
-//                return textAlertIsiJabatan.getText();
-//            }case RegularPage.alertProfilWajib -> {
-//                return textAlertIsiProfile.getText();
-//            }
-            case RegularPage.imageException -> {
+            }case RegularPage.imageException -> {
                 return textImageExc.getText();
             }case RegularPage.labelKarakter -> {
                 return textKarakter.getText();
@@ -145,30 +119,10 @@ public class BlogPage {
                 return textTotalTrainer.getText();
             }case RegularPage.listBlog -> {
                 for(WebElement name : listName){
-                    return name.getText();
+                    currentOptions.add(name.getText());
                 }
+                return currentOptions.toString();
             }
-//            case RegularPage.fieldJudul -> {
-//                return isiJudulBlog.getAttribute("name");
-//            }case RegularPage.fieldPrev -> {
-//                return isiPreview.getAttribute("name");
-//            }case RegularPage.fieldCont -> {
-//                return isiContent.getAttribute("name");
-//            }case RegularPage.editNama -> {
-//                return editNamaTrainer.getAttribute("name");
-//            }case RegularPage.editjabat -> {
-//                return editJabatan.getAttribute("name");
-//            }case RegularPage.editProfil -> {
-//                return isiProfile.getAttribute("name");
-//            }case RegularPage.dataUpdate -> {
-//                return textUpdate.getText();
-//            }case RegularPage.alert -> {
-//                return textAlert.getText();
-//            }case RegularPage.listGrids -> {
-//                for(WebElement gridList : listGrid){
-//                    return gridList.getText();
-//                }
-//            }
 
         }
         return tampil;

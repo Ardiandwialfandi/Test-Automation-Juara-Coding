@@ -94,11 +94,18 @@ public class AboutPage {
     public WebElement textAlert;
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[2]/div[2]/div/div/div/div[4]/div/nav/ul/li[3]")
     public WebElement btnGrid;
+    @FindBy(xpath = "//a[normalize-space()='3']")
+    public WebElement btnGrid3;
+
 
     @FindBys({
             @FindBy(tagName = "p")
     })
     public List <WebElement> listGrid;
+    @FindBys({
+            @FindBy(tagName = "figure")
+    })
+    public List <WebElement> listBlog;
 
     public void login() {
         email.sendKeys("ucen1315@gmail.com");
@@ -131,6 +138,7 @@ public class AboutPage {
             case RegularPage.editNama -> editNamaTrainer.sendKeys(value);
             case RegularPage.editjabat -> editJabatan.sendKeys(value);
             case RegularPage.editProfil -> editProfile.sendKeys(value);
+            case RegularPage.grid3 -> btnGrid3.sendKeys(value);
         }
     }
 
@@ -174,8 +182,7 @@ public class AboutPage {
                 return editNamaTrainer.getAttribute("name");
             }case RegularPage.editjabat -> {
                 return editJabatan.getAttribute("name");
-            }
-            case RegularPage.dataUpdate -> {
+            }case RegularPage.dataUpdate -> {
                 return textUpdate.getText();
             }case RegularPage.alert -> {
                 return textAlert.getText();
@@ -183,13 +190,15 @@ public class AboutPage {
                 for(WebElement gridList : listGrid){
                     return gridList.getText();
                 }
+            }case RegularPage.listBlog -> {
+                for(WebElement blogList : listBlog){
+                    return blogList.getText();
+                }
             }
 
         }
         return tampil;
     }
-
-
 
 }
 

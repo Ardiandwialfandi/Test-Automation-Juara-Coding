@@ -48,7 +48,12 @@ public enum TestScenarios {
     T45("Menyimpan value menggunakan symbol kurang dari"),
     T46("Berhasil menambahkan blog"),
     T47("Menambahkan jumlah total blog"),
-    T48("Menampilkan data sesuai keyword");
+    T48("Menampilkan data sesuai keyword"),
+    T49("Edit dengan data file format mp3, mp4, docx"),
+    T50("Ubah dengan text box content preview kosong"),
+    T51("Ubah dengan text box content blog kosong"),
+    T52("Mengubah data blog"),
+    T53("Menampilkan list data trainer lain");
     private final String testCaseName;
 
     TestScenarios(String value){

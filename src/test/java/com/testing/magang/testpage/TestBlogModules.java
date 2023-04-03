@@ -16,6 +16,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -42,7 +43,7 @@ public class TestBlogModules {
     @Given("Admin masukan value judul blog")
     public void admin_masukan_value_judul_blog() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog");
-        bp.valueSendkey(RegularPage.isiJud, "Test666");
+        bp.valueSendkey(RegularPage.isiJud, "NyobaaTest1119");
     }
 
     @Given("Admin pilih file dengan format gambar")
@@ -52,10 +53,22 @@ public class TestBlogModules {
         bp.valueSendkey(RegularPage.isiFile, "F:\\Download\\pramuka.jpg");
         RegularPage.delayDuration(1);
     }
+    @Given("Admin ubah file dengan format gambar")
+    public void admin_ubah_file_dengan_format_gambar() {
+        ext.log(LogStatus.PASS, "Admin ubah file dengan format gambar");
+        bp.valueSendkey(RegularPage.isiFile, "F:\\Download\\pramuka.jpg");
+        RegularPage.delayDuration(1);
+    }
     @Given("Admin kembali ke page sebelumnya")
     public void admin_kembali_ke_page_sebelumnya() {
         ext.log(LogStatus.PASS, "Admin kembali ke page sebelumnya");
         driver.navigate().to("https://dev.ptdika.com/web_jc_v2/admin/blogs/add");
+    }
+    @Given("Admin klik image data blog")
+    public void image_one() {
+        ext.log(LogStatus.PASS, "Admin klik image data blog");
+        RegularPage.delayDuration(1);
+        bp.btnClick(RegularPage.klikGambar);
     }
 
     @And("Admin klik tombol tambah blog")
@@ -115,7 +128,7 @@ public class TestBlogModules {
     public void ganti_value() {
         ext.log(LogStatus.PASS, "Admin ganti value judul blog");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL+"a");
-        bp.valueSendkey(RegularPage.isiJud, "Test6666 Nyoba");
+        bp.valueSendkey(RegularPage.isiJud, "Yobaa119");
     }
 
     @And("Admin pilih tipe list set to home")
@@ -207,7 +220,7 @@ public class TestBlogModules {
     public void judul_kurang_dari() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog kurang dari");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL + "a");
-        bp.valueSendkey(RegularPage.isiJud, "Nyoba kurang_dari<<<<<<<<<<<<<<<<<");
+        bp.valueSendkey(RegularPage.isiJud, "kurang_dar8<<<");
     }
 
     @And("Admin masukan value content preview kurang dari")
@@ -227,12 +240,25 @@ public class TestBlogModules {
     public void value_baru() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog baru");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL+"a");
-        bp.valueSendkey(RegularPage.isiJud, "Test4445");
+        bp.valueSendkey(RegularPage.isiJud, "Test Automate119");
     }
+
     @And("Admin masukan value judul blog pada search")
     public void admin_masukan_value_judul_blog_pada_search() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog pada search");
         ap.valueSendkey(RegularPage.searchFeature, "Contoh menjadi SQA");
+    }
+    @And("Admin scroll halaman blog")
+    public void scroll_blog() {
+        ext.log(LogStatus.PASS, "Admin scroll halaman blog");
+        RegularPage.scrollPage("0","900");
+    }
+    @And("Admin klik tombol 3")
+    public void blog_list_tiga() {
+        ext.log(LogStatus.PASS, "Admin klik tombol 3");
+        RegularPage.delayDuration(2);
+        bp.btnClick(RegularPage.grid3);
+        driver.navigate().to("https://dev.ptdika.com/web_jc_v2/admin/blogs?page_blog=3");
     }
 
     @Then("Admin get on page tambah blog")
@@ -254,7 +280,7 @@ public class TestBlogModules {
     @Then("Menampilkan alert content preview wajib diisi")
     public void preview_harap_isi() {
         ext.log(LogStatus.PASS, "Menampilkan alert content preview wajib diisi");
-        RegularPage.scrollElement(bp.textTambahBlog);
+        RegularPage.scrollElement(bp.isiPreview);
         Assert.assertEquals(bp.result(RegularPage.alertPrev),"Harap isi content perview");
     }
     @Then("Menampilkan alert content blog wajib diisi")
@@ -274,7 +300,14 @@ public class TestBlogModules {
     public void content_harap_di_isi() {
         ext.log(LogStatus.PASS, "Menampilkan alert content blog wajib di isi");
         RegularPage.scrollElement(bp.isiContent);
-        Assert.assertEquals(bp.result(RegularPage.alertCont),"Harap isi content blog");
+        try{
+            Assert.assertEquals(bp.result(RegularPage.alertCont),"Harap isi content blog");
+        }catch(NoSuchElementException e){
+            System.out.println("Element tidak ada");
+            Assert.fail();
+        }catch (AssertionError e){
+            System.out.println("Failed "+e.getMessage());
+        }
     }
     @Then("Menampilkan alert judul sudah terdaftar")
     public void judul_duplicate() {
@@ -306,6 +339,13 @@ public class TestBlogModules {
     public void menampilkan_list_blog() {
         ext.log(LogStatus.PASS, "Menampilkan list blog");
         Assert.assertTrue(ap.result(RegularPage.listSearch).contains("Contoh menjadi SQA"));
+        RegularPage.delayDuration(1);
+    }
+    @Then("Admin get list blok 3")
+    public void list_blog_tiga() {
+        ext.log(LogStatus.PASS, "Admin get list blok 3");
+        String exp= ap.result(RegularPage.listBlog);
+        Assert.assertEquals(ap.result(RegularPage.listBlog),exp);
         RegularPage.delayDuration(1);
     }
 

@@ -31,7 +31,7 @@ public class RegularPage {
     public static final String labelKarakter = "karakter";
     public static final String berhasilSimpan = "simpan";
     public static final String listSearch = "list";
-    public static final String listBlog = "list";
+    public static final String listBlog = "listt";
     public static final String listGrids = "listGrid";
     public static final String totalData = "total";
     public static final String searchFeature = "search";
@@ -52,7 +52,7 @@ public class RegularPage {
     public static final String isiNamaTrainer = "nama";
     public static final String isiJabatan = "jabatan";
     public static final String isiProfile = "profile";
-    public static final String fieldJudul = "judull";
+    public static final String grid3 = "grid3";
     public static final String fieldPrev = "previ";
     public static final String fieldCont = "conten";
     public static final String tombolLogout = "logout";
