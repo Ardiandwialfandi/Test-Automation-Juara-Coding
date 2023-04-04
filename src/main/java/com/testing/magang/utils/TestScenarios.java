@@ -1,20 +1,36 @@
 package com.testing.magang.utils;
 
 public enum TestScenarios {
-    T1("Menampilkan form tambah trainer"),
-    T2("Menambahkan Trainer dengan value kosong"),
-    T3("Menambahkan Trainer tidak dengan file"),
-    T4("Simpan dengan text box nama trainer kosong"),
-    T5("Simpan dengan text box nama trainer spasi"),
-    T6("Simpan dengan text box jabatan kosong"),
-    T7("Simpan dengan text box jabatan spasi"),
-    T8("Simpan dengan text box isi profile kosong"),
-    T9("Simpan dengan text box isi profile spasi"),
-    T10("Menambahkan Trainer dengan file format selain gambar"),
-    T11("Simpan input type dengan simbol kutip dua"),
-    T12("Simpan input type dengan simbol lebih dari"),
-    T13("Simpan input type dengan simbol kutip satu"),
-    T14("Simpan input type dengan simbol kurang dari");
+    T1("Menampilkan form tambah rincian biaya"),
+    T2("Admin menambahkan Rincian Biaya dengan value kosong"),
+    T3("Admin menambahkan Rincian Biaya isi nama program"),
+    T4("Admin menambahkan Rincian Biaya input harga program"),
+    T5("Admin menambahkan Rincian Biaya isi keunggulan program"),
+    T6("Admin menambahkan Rincian Biaya menggunakan karakter tanpa mengisi harga"),
+    T7("Admin menambahkan Rincian Biaya input harga normal"),
+    T8("Admin menambahkan Rincian Biaya"),
+    T9("Admin Search rincian data dengan value"),
+    T10("Admin Search rincian biaya dengan value 10"),
+    T11("Admin Search rincian biaya dengan value harga normal"),
+    T12("Admin Search rincian biaya dengan value harga diskon"),
+    T13("Halaman edit Rincian Biaya"),
+    T14("Admin Update Rincian Biaya"),
+    T15("Admin Update Rincian Biaya isi keunggulan 3Menampilkan halaman tambah Benefit"),
+    T16("Admin Update Rincian Biaya isi keunggulan 4"),
+    T17("Admin Update Rincian Biaya isi keunggulan 5"),
+    T18("Menampilkan halaman tambah Benefit"),
+    T19("Admin menambahkan Benefit dengan value kosong"),
+    T20("Admin menambahkan Benefit tanpa pilih publish"),
+    T21("Tambah benefit menggunakan karakter \"<<\""),
+    T22("Tambah benefit menggunakan karakter \">>\""),
+    T23("Tambah benefit menggunakan karakter kutip "),
+    T24("Tambah benefit menggunakan karakter |'| "),
+    T25("Tambah benefit menggunakan Angka"),
+    T26("Admin tambah benefit"),
+    T27("Admin tambah benefit"),
+    T28("search benefit"),
+    T29("update Benefit");
+
     private final String testCaseName;
 
     TestScenarios(String value){

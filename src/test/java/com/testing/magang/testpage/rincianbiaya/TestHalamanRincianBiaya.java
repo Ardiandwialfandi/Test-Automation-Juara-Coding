@@ -36,18 +36,20 @@ public class TestHalamanRincianBiaya {
     }
     @When("Admin klik tombol home")
     public void admin_klik_tombol_home() {
-        RegularPage.delayDuration(1);
         ext.log(LogStatus.PASS, "Admin klik tombol home");
+        RegularPage.delayDuration(2);
         rbp.btnClick(RegularPage.tombolMenuHome);
     }
     @And("Admin klik tombol rincian biaya")
     public void admin_klik_tombol_rincian_biaya(){
         ext.log(LogStatus.PASS, "Admin klik tombol rinciann biaya");
+        RegularPage.delayDuration(1);
         rbp.btnClick(RegularPage.tombolRincianBiaya);
     }
-    @And("Admin klik tombol tambah")
+    @And("Admin mengklik tombol tambah")
     public void admin_klik_tombol_tambah(){
         ext.log(LogStatus.PASS, "Admin klik tombol tambah");
+        RegularPage.delayDuration(1);
         rbp.btnClick(RegularPage.tombolTambah);
     }
     @Then("Admin berhasil ke halaman tambah rincian biaya")
