@@ -10,7 +10,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -33,19 +32,15 @@ public class TestLogin {
     }
     @When("Tanpa input username")
     public void tanpa_input_username() {
+        RegularPage.delayDuration(1);
         ext.log(LogStatus.PASS, "Tanpa input username");
         pageLog.enterUsername("");
     }
-    @When("Tanpa input password")
+    @And("Tanpa input password")
     public void tanpa_input_password() {
+        RegularPage.delayDuration(2);
         ext.log(LogStatus.PASS, "Tanpa input password");
         pageLog.enterPassword("");
-    }
-    @Then("Get message username atau password kosong")
-    public void get_message_username_atau_password_kosong() {
-        ext.log(LogStatus.PASS, "Get message username atau password kosong");
-        Assert.assertEquals(pageLog.getTxtUsernameAtauPasswordKosong(), "username Atau Password Kosong");
-        RegularPage.delayDuration(2);
     }
 
     @Given("Input username yang terdaftar")
@@ -71,10 +66,10 @@ public class TestLogin {
         ext.log(LogStatus.PASS, "Input username menggunakan nomor handphone");
         pageLog.enterUsername("0898123123");
     }
+
     @When("Input password yang terdaftar")
     public void input_password_yang_terdaftar() {
         ext.log(LogStatus.PASS, "Input password yang terdaftar");
-        pageLog.enterPassword(Keys.CONTROL+"a");
         pageLog.enterPassword("a");
         RegularPage.delayDuration(1);
     }
@@ -89,12 +84,18 @@ public class TestLogin {
         ext.log(LogStatus.PASS, "Input password menggunakan angka");
         pageLog.enterUsername("1");
     }
-    @And("Get message username atau password salah")
+
+    @Then("Get message username atau password kosong")
+    public void get_message_username_atau_password_kosong() {
+        ext.log(LogStatus.PASS, "Get message username atau password kosong");
+        Assert.assertEquals(pageLog.getTxtUsernameAtauPasswordKosong(), "username Atau Password Kosong");
+    }
+    @Then("Get message username atau password salah")
     public void get_message_username_atau_password_salah() {
         ext.log(LogStatus.PASS, "Get message username atau password salah");
         Assert.assertEquals(pageLog.getTxtUsernameAtauPasswordSalah(), "Username Atau Password Salah");
     }
-    @And("Get to page dashboard")
+    @Then("Get to page dashboard")
     public void get_to_page_dashboard() {
         ext.log(LogStatus.PASS, "Get to page dashboard");
         Assert.assertEquals(pageLog.getTxtDashboard(), "Dashboard");
@@ -102,7 +103,6 @@ public class TestLogin {
     @And("Click button sign-in")
     public void click_button_signin() {
         ext.log(LogStatus.PASS, "Click button sign-in");
-        RegularPage.delayDuration(1);
         pageLog.btnLogin();
     }
     @And("Click profil")
@@ -110,13 +110,13 @@ public class TestLogin {
         ext.log(LogStatus.PASS, "Click profil");
         pageLog.pageLogot();
     }
-    @Then("Click button ok")
+    @And("Click button ok")
     public void click_button_ok() {
         ext.log(LogStatus.PASS, "Click button ok");
-        RegularPage.delayDuration(2);
-        pageLog.tombolOk();
+        RegularPage.delayDuration(1);
+        pageLog.buttonOk();
     }
-    @Then("Click button logout")
+    @And("Click button logout")
     public void click_button_logout() {
         ext.log(LogStatus.PASS, "Click button logout");
         pageLog.btnLogot();

@@ -1,14 +1,14 @@
 package com.testing.magang.utils;
 
 public enum TestScenarios {
-    T1("Admin invalid login WJC"),
-    T2("Admin simpan dengan password yang tidak terdaftar"),
-    T3("Admin simpan dengan username yang tidak terdaftar"),
-    T4("Admin simpan dengan username menggunakan nomor handphone"),
-    T5("Admin simpan dengan password menggunakan huruf kapital"),
-    T6("Admin simpan dengan password menggunakan angka"),
-    T7("Admin valid login WJC"),
-    T8("Admin logout WJC");
+    T1("Admin valid login WJC"),
+    T2("Admin logout WJC"),
+    T3("Admin masuk dengan password tidak terdaftar"),
+    T4("Admin masuk dengan username tidak terdaftar"),
+    T5("Admin simpan username menggunakan nomor handphone"),
+    T6("Admin masuk dengan password menggunakan huruf kapital"),
+    T7("Admin masuk dengan password menggunakan angka"),
+    T8("Admin tanpa input username dan password");
 
     private final String testCaseName;
 

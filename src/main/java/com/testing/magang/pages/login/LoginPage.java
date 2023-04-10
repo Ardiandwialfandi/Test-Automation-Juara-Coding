@@ -21,11 +21,11 @@ public class LoginPage {
     WebElement username;
     @FindBy(xpath = "//input[@id='password']")
     WebElement password;
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Sign-In']")
     WebElement btnLogin;
     @FindBy(xpath = "//p[@class='alert alert-warning']")
     WebElement txtUsernameAtauPasswordSalah;
-    @FindBy(xpath = "//div[@id='swal2-html-container']")
+    @FindBy(xpath = "/html[1]/body[1]/div[3]/div[1]/div[2]")
     WebElement txtUsernameAtauPasswordKosong;
     @FindBy(xpath = "//span[normalize-space()='Dashboard']")
     WebElement txtDashboard;
@@ -60,14 +60,13 @@ public class LoginPage {
         this.password.sendKeys(password);
     }
 
-    public void tombolOk(){
-        btnOk.click();
-    }
 
     public void btnLogin() {
         btnLogin.click();
     }
-
+    public void buttonOk(){
+        btnOk.click();
+    }
     public void btnLogot() {
         btnLogout.click();
     }
