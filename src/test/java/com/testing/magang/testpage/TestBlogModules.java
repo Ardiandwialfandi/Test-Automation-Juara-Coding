@@ -43,7 +43,7 @@ public class TestBlogModules {
     @Given("Admin masukan value judul blog")
     public void admin_masukan_value_judul_blog() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog");
-        bp.valueSendkey(RegularPage.isiJud, "NyobaaTest1119");
+        bp.valueSendkey(RegularPage.isiJud, "NyobaaTest1111");
     }
 
     @Given("Admin pilih file dengan format gambar")
@@ -128,7 +128,7 @@ public class TestBlogModules {
     public void ganti_value() {
         ext.log(LogStatus.PASS, "Admin ganti value judul blog");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL+"a");
-        bp.valueSendkey(RegularPage.isiJud, "Yobaa119");
+        bp.valueSendkey(RegularPage.isiJud, "Yobaa1191");
     }
 
     @And("Admin pilih tipe list set to home")
@@ -220,7 +220,7 @@ public class TestBlogModules {
     public void judul_kurang_dari() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog kurang dari");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL + "a");
-        bp.valueSendkey(RegularPage.isiJud, "kurang_dar8<<<");
+        bp.valueSendkey(RegularPage.isiJud, "kurang_dar90<<<");
     }
 
     @And("Admin masukan value content preview kurang dari")
@@ -240,7 +240,7 @@ public class TestBlogModules {
     public void value_baru() {
         ext.log(LogStatus.PASS, "Admin masukan value judul blog baru");
         bp.valueSendkey(RegularPage.isiJud, Keys.CONTROL+"a");
-        bp.valueSendkey(RegularPage.isiJud, "Test Automate119");
+        bp.valueSendkey(RegularPage.isiJud, "Test Automate1199");
     }
 
     @And("Admin masukan value judul blog pada search")
